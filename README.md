@@ -1,8 +1,8 @@
-# M²: Meshed-Memory Transformer
-This repository contains the reference code for the paper _[M²: Meshed-Memory Transformer for Image Captioning](https://arxiv.org/abs/1912.08226)_.
+# Duel-Level Collaborative Transformer for Image Captioning
+This repository contains the reference code for the paper _[Duel-Level Collaborative Transformer for Image Captioning]().
 
 <p align="center">
-  <img src="images/m2.png" alt="Meshed-Memory Transformer" width="320"/>
+  <img src="images/" alt="DLCT" width="320"/>
 </p>
 
 ## Environment setup
