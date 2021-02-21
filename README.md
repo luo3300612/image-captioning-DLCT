@@ -36,9 +36,6 @@ Important args:
 * `--model_path`
 * `--dump_json` dump generated captions to
 
-
-## Training
-
 ## References
 [1] [M2](https://github.com/aimagelab/meshed-memory-transformer)
 
