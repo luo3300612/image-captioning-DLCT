@@ -1,72 +1,44 @@
-# M²: Meshed-Memory Transformer
-This repository contains the reference code for the paper _[M²: Meshed-Memory Transformer for Image Captioning](https://arxiv.org/abs/1912.08226)_.
+# Duel-Level Collaborative Transformer for Image Captioning
+This repository contains the reference code for the paper [Duel-Level Collaborative Transformer for Image Captioning](https://arxiv.org/pdf/2101.06462.pdf).
 
-<p align="center">
-  <img src="images/m2.png" alt="Meshed-Memory Transformer" width="320"/>
-</p>
+![](https://github.com/luo3300612/image-captioning-DLCT/raw/master/images/arch.png)
 
-## Environment setup
-Clone the repository and create the `m2release` conda environment using the `environment.yml` file:
-```
-conda env create -f environment.yml
-conda activate m2release
-```
-
-Then download spacy data by executing the following command:
-```
-python -m spacy download en
-```
-
-Note: Python 3.6 is required to run our code. 
-
+## Experiment setup
+please refer to [m2 transformer](https://github.com/aimagelab/meshed-memory-transformer)
 
 ## Data preparation
-To run the code, annotations and detection features for the COCO dataset are needed. Please download the annotations file [annotations.zip](https://drive.google.com/file/d/1i8mqKFKhqvBr8kEp3DbIh9-9UNAfKGmE/view?usp=sharing) and extract it.
+* **Annotation**. Download the annotation file [annotation.zip](https://drive.google.com/file/d/1i8mqKFKhqvBr8kEp3DbIh9-9UNAfKGmE/view?usp=sharing)
+* **Feature**. You can download our ResNeXt-101 feature (.hdf5 file) [here](https://pan.baidu.com/s/188xmv2r5eXUbEUqKSA4BCw). Access code: etrx.
 
-Detection features are computed with the code provided by [1]. To reproduce our result, please download the COCO features file [coco_detections.hdf5](https://drive.google.com/open?id=1MV6dSnqViQfyvgyHrmAT_lLpFbkzp3mx) (~53.5 GB), in which detections of each image are stored under the `<image_id>_features` key. `<image_id>` is the id of each COCO image, without leading zeros (e.g. the `<image_id>` for `COCO_val2014_000000037209.jpg` is `37209`), and each value should be a `(N, 2048)` tensor, where `N` is the number of detections. 
+There are five kinds of keys in our .hdf5 file. They are
 
+* `['%d_features' % image_id]`: region features (N_regions, feature_dim)
+* `['%d_boxes' % image_id]`: bounding box of region features (N_regions, 4)
+* `['%d_size' % image_id]`: size of original image (for normalizing bounding box), (2,)
+* `['%d_grids' % image_id]`: grid features (N_grids, feature_dim)
+* `['%d_mask' % image_id]`: geometric alignment graph, (N_regions, N_grids)
+
+We extract feature with the code in [grid-feats-vqa](https://github.com/facebookresearch/grid-feats-vqa).
+
+The first three keys can be obtained when extracting region features with [extract_region_feature.py](./others/extract_region_feature.py).
+The forth key can be obtained when extracting grid features with code in [grid-feats-vqa](https://github.com/facebookresearch/grid-feats-vqa).
+The last key can be obtained with [align.ipynb](./align/align.ipynb)
+
+## Training
 
 ## Evaluation
-To reproduce the results reported in our paper, download the pretrained model file [meshed_memory_transformer.pth](https://drive.google.com/file/d/1naUSnVqXSMIdoiNz_fjqKwh9tXF7x8Nx/view?usp=sharing) and place it in the code folder.
-
-Run `python test.py` using the following arguments:
-
-| Argument | Possible values |
-|------|------|
-| `--batch_size` | Batch size (default: 10) |
-| `--workers` | Number of workers (default: 0) |
-| `--features_path` | Path to detection features file |
-| `--annotation_folder` | Path to folder with COCO annotations |
-
-#### Expected output
-Under `output_logs/`, you may also find the expected output of the evaluation code.
-
-
-## Training procedure
-Run `python train.py` using the following arguments:
-
-| Argument | Possible values |
-|------|------|
-| `--exp_name` | Experiment name|
-| `--batch_size` | Batch size (default: 10) |
-| `--workers` | Number of workers (default: 0) |
-| `--m` | Number of memory vectors (default: 40) |
-| `--head` | Number of heads (default: 8) |
-| `--warmup` | Warmup value for learning rate scheduling (default: 10000) |
-| `--resume_last` | If used, the training will be resumed from the last checkpoint. |
-| `--resume_best` | If used, the training will be resumed from the best checkpoint. |
-| `--features_path` | Path to detection features file |
-| `--annotation_folder` | Path to folder with COCO annotations |
-| `--logs_folder` | Path folder for tensorboard logs (default: "tensorboard_logs")|
-
-For example, to train our model with the parameters used in our experiments, use
+```python
+python eval.py --annotation annotation --workers 4 --features_path ./data/coco_all_align.hdf5 --model_path path_of_model_to_eval.pth --model DLCT --image_field ImageAllFieldWithMask --grid_embed --box_embed --dump_json gen_res.json --beam_size 5
 ```
-python train.py --exp_name m2_transformer --batch_size 50 --m 40 --head 8 --warmup 10000 --features_path /path/to/features --annotation_folder /path/to/annotations
-```
+Important args:
+* `--features_path` path to hdf5 file
+* `--model_path`
+* `--dump_json` dump generated captions to
 
-<p align="center">
-  <img src="images/results.png" alt="Sample Results" width="850"/>
-</p>
 
-#### References
-[1] P. Anderson, X. He, C. Buehler, D. Teney, M. Johnson, S. Gould, and L. Zhang. Bottom-up and top-down attention for image captioning and visual question answering. In _Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition_, 2018.
+## References
+[1] [M2](https://github.com/aimagelab/meshed-memory-transformer)
+
+[2] [grid-feats-vqa](https://github.com/facebookresearch/grid-feats-vqa)
+## Acknowledgements
+Thanks the original [m2](https://github.com/aimagelab/meshed-memory-transformer) and amazing work of [grid-feats-vqa](https://github.com/facebookresearch/grid-feats-vqa). 
