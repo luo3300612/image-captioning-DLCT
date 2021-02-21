@@ -1,16 +1,23 @@
 # Duel-Level Collaborative Transformer for Image Captioning
 This repository contains the reference code for the paper [Duel-Level Collaborative Transformer for Image Captioning](https://arxiv.org/pdf/2101.06462.pdf).
+<<<<<<< HEAD
 
-![](https://github.com/luo3300612/image-captioning-DLCT/raw/master/images/arch.png)
+![](https://raw.githubusercontent.com/luo3300612/image-captioning-DLCT/master/images/arch.png)
+=======
+>>>>>>> d5c4a05765e6a55724e5c22c87515bb064bd0f77
 
 ## Experiment setup
 please refer to [m2 transformer](https://github.com/aimagelab/meshed-memory-transformer)
 
 ## Data preparation
 * **Annotation**. Download the annotation file [annotation.zip](https://drive.google.com/file/d/1i8mqKFKhqvBr8kEp3DbIh9-9UNAfKGmE/view?usp=sharing)
+<<<<<<< HEAD
 * **Feature**. You can download our ResNeXt-101 feature (.hdf5 file) [here](https://pan.baidu.com/s/188xmv2r5eXUbEUqKSA4BCw). Access code: etrx.
 
 There are five kinds of keys in our .hdf5 file. They are
+=======
+* **Feature**. You can download our ResNeXt-101 feature [here](https://pan.baidu.com/s/188xmv2r5eXUbEUqKSA4BCw). Access code: etrx.
+>>>>>>> d5c4a05765e6a55724e5c22c87515bb064bd0f77
 
 * `['%d_features' % image_id]`: region features (N_regions, feature_dim)
 * `['%d_boxes' % image_id]`: bounding box of region features (N_regions, 4)
@@ -18,6 +25,7 @@ There are five kinds of keys in our .hdf5 file. They are
 * `['%d_grids' % image_id]`: grid features (N_grids, feature_dim)
 * `['%d_mask' % image_id]`: geometric alignment graph, (N_regions, N_grids)
 
+<<<<<<< HEAD
 We extract feature with the code in [grid-feats-vqa](https://github.com/facebookresearch/grid-feats-vqa).
 
 The first three keys can be obtained when extracting region features with [extract_region_feature.py](./others/extract_region_feature.py).
@@ -35,6 +43,11 @@ Important args:
 * `--model_path`
 * `--dump_json` dump generated captions to
 
+=======
+## Evaluation
+
+## Training
+>>>>>>> d5c4a05765e6a55724e5c22c87515bb064bd0f77
 
 ## References
 [1] [M2](https://github.com/aimagelab/meshed-memory-transformer)
