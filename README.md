@@ -26,7 +26,9 @@ The forth key can be obtained when extracting grid features with code in [grid-f
 The last key can be obtained with [align.ipynb](./align/align.ipynb)
 
 ## Training
-
+```python
+python train.py --exp_name dlct --batch_size 50 --head 8 --features_path ./data/coco_all_align.hdf5 --annotation annotation --workers 4 --rl_batch_size 100 --image_field ImageAllFieldWithMask --model DLCT --rl_at 17 --seed 118
+```
 ## Evaluation
 ```python
 python eval.py --annotation annotation --workers 4 --features_path ./data/coco_all_align.hdf5 --model_path path_of_model_to_eval.pth --model DLCT --image_field ImageAllFieldWithMask --grid_embed --box_embed --dump_json gen_res.json --beam_size 5
