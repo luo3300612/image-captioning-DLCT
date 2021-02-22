@@ -8,11 +8,9 @@ please refer to [m2 transformer](https://github.com/aimagelab/meshed-memory-tran
 
 ## Data preparation
 * **Annotation**. Download the annotation file [annotation.zip](https://drive.google.com/file/d/1i8mqKFKhqvBr8kEp3DbIh9-9UNAfKGmE/view?usp=sharing)
-* **Feature**. You can download our ResNeXt-101 feature (.hdf5 file) [here](https://pan.baidu.com/s/188xmv2r5eXUbEUqKSA4BCw). Access code: etrx.
+* **Feature**. You can download our ResNeXt-101 feature (hdf5 file) [here](https://pan.baidu.com/s/188xmv2r5eXUbEUqKSA4BCw). Access code: etrx.
 
 There are five kinds of keys in our .hdf5 file. They are
-* **Feature**. You can download our ResNeXt-101 feature [here](https://pan.baidu.com/s/188xmv2r5eXUbEUqKSA4BCw). Access code: etrx.
-
 * `['%d_features' % image_id]`: region features (N_regions, feature_dim)
 * `['%d_boxes' % image_id]`: bounding box of region features (N_regions, 4)
 * `['%d_size' % image_id]`: size of original image (for normalizing bounding box), (2,)
