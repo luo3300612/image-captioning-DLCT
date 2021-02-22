@@ -40,5 +40,7 @@ Important args:
 [1] [M2](https://github.com/aimagelab/meshed-memory-transformer)
 
 [2] [grid-feats-vqa](https://github.com/facebookresearch/grid-feats-vqa)
+
+[3] [butd](https://openaccess.thecvf.com/content_cvpr_2018/CameraReady/1163.pdf)
 ## Acknowledgements
 Thanks the original [m2](https://github.com/aimagelab/meshed-memory-transformer) and amazing work of [grid-feats-vqa](https://github.com/facebookresearch/grid-feats-vqa). 
