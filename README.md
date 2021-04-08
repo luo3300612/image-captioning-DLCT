@@ -7,8 +7,9 @@ This repository contains the reference code for the paper [Duel-Level Collaborat
 please refer to [m2 transformer](https://github.com/aimagelab/meshed-memory-transformer)
 
 ## Data preparation
-* **Annotation**. Download the annotation file [annotation.zip](https://drive.google.com/file/d/1i8mqKFKhqvBr8kEp3DbIh9-9UNAfKGmE/view?usp=sharing)
+* **Annotation**. Download the annotation file [annotation.zip](https://drive.google.com/file/d/1i8mqKFKhqvBr8kEp3DbIh9-9UNAfKGmE/view?usp=sharing). Extarct and put it in the project root directory.
 * **Feature**. You can download our ResNeXt-101 feature (hdf5 file) [here](https://pan.baidu.com/s/188xmv2r5eXUbEUqKSA4BCw). Access code: etrx.
+* **evaluation**. Download the evaluation tools [here](https://pan.baidu.com/s/1vE7pzSADe_EYPSGvjPgGtA). Access code: ubdc. Extarct and put it in the project root directory.
 
 There are five kinds of keys in our .hdf5 file. They are
 * `['%d_features' % image_id]`: region features (N_regions, feature_dim)
@@ -29,7 +30,7 @@ python train.py --exp_name dlct --batch_size 50 --head 8 --features_path ./data/
 ```
 ## Evaluation
 ```python
-python eval.py --annotation annotation --workers 4 --features_path ./data/coco_all_align.hdf5 --model_path path_of_model_to_eval.pth --model DLCT --image_field ImageAllFieldWithMask --grid_embed --box_embed --dump_json gen_res.json --beam_size 5
+python eval.py --annotation annotation --workers 4 --features_path ./data/coco_all_align.hdf5 --model_path path_of_model_to_eval --model DLCT --image_field ImageAllFieldWithMask --grid_embed --box_embed --dump_json gen_res.json --beam_size 5
 ```
 Important args:
 * `--features_path` path to hdf5 file
