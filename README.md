@@ -8,8 +8,8 @@ please refer to [m2 transformer](https://github.com/aimagelab/meshed-memory-tran
 
 ## Data preparation
 * **Annotation**. Download the annotation file [annotation.zip](https://drive.google.com/file/d/1i8mqKFKhqvBr8kEp3DbIh9-9UNAfKGmE/view?usp=sharing). Extarct and put it in the project root directory.
-* **Feature**. You can download our ResNeXt-101 feature (hdf5 file) [here](https://pan.baidu.com/s/188xmv2r5eXUbEUqKSA4BCw). Access code: etrx.
-* **evaluation**. Download the evaluation tools [here](https://pan.baidu.com/s/1vE7pzSADe_EYPSGvjPgGtA). Access code: ubdc. Extarct and put it in the project root directory.
+* **Feature**. You can download our ResNeXt-101 feature (hdf5 file) [here](https://pan.baidu.com/s/1Yeg7PNynhak7FL8aRLJ-Bw). Access code: 7fhb.
+* **evaluation**. Download the evaluation tools [here](https://pan.baidu.com/s/1Yeg7PNynhak7FL8aRLJ-Bw). Access code: 7fhb. Extarct and put it in the project root directory.
 
 There are five kinds of keys in our .hdf5 file. They are
 * `['%d_features' % image_id]`: region features (N_regions, feature_dim)
