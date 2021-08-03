@@ -1,5 +1,5 @@
-# Duel-Level Collaborative Transformer for Image Captioning
-This repository contains the reference code for the paper [Duel-Level Collaborative Transformer for Image Captioning](https://arxiv.org/pdf/2101.06462.pdf).
+# Dual-Level Collaborative Transformer for Image Captioning
+This repository contains the reference code for the paper [Dual-Level Collaborative Transformer for Image Captioning](https://arxiv.org/pdf/2101.06462.pdf).
 
 ![](https://raw.githubusercontent.com/luo3300612/image-captioning-DLCT/master/images/arch.png)
 
