@@ -121,7 +121,7 @@ from detectron2.structures import Boxes
 
 
 save_dir = '/home/luoyp/disk1/grid-feats-vqa/feats'
-region_before = h5py.File(os.path.join(save_dir,'region_before_X152.hdf5'),'w')
+region_before = h5py.File(os.path.join(save_dir,'region_before_X101.hdf5'),'w')
 # region_after = h5py.File(os.path.join(save_dir,'region_after.hdf5'),'w')
 # grid7 = h5py.File(os.path.join(save_dir,'my_grid7.hdf5'),'w')
 # original_grid = h5py.File(os.path.join(save_dir,'original_grid7.hdf5'),'w')
