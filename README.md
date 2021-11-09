@@ -39,8 +39,9 @@ Important args:
 
 Pretrained model is available [here](https://pan.baidu.com/s/1xVZO7t8k4H_l3aEyuA-KXQ). Acess code: jcj6.
 By evaluating the pretrained model, you will get
+```bash
 {'BLEU': [0.8136727001615207, 0.6606095421082421, 0.5167535314080227, 0.39790755018790197], 'METEOR': 0.29522868252436046, 'ROUGE': 0.5914367650104326, 'CIDEr': 1.3382047139781112, 'SPICE': 0.22953477359195887}
-
+```
 ## References
 [1] [M2](https://github.com/aimagelab/meshed-memory-transformer)
 
