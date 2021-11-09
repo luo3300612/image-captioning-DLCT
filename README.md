@@ -8,8 +8,8 @@ please refer to [m2 transformer](https://github.com/aimagelab/meshed-memory-tran
 
 ## Data preparation
 * **Annotation**. Download the annotation file [annotation.zip](https://drive.google.com/file/d/1i8mqKFKhqvBr8kEp3DbIh9-9UNAfKGmE/view?usp=sharing). Extarct and put it in the project root directory.
-* **Feature**. You can download our ResNeXt-101 feature (hdf5 file) [here](https://pan.baidu.com/s/1Yeg7PNynhak7FL8aRLJ-Bw). Access code: 7fhb.
-* **evaluation**. Download the evaluation tools [here](https://pan.baidu.com/s/1Yeg7PNynhak7FL8aRLJ-Bw). Access code: 7fhb. Extarct and put it in the project root directory.
+* **Feature**. You can download our ResNeXt-101 feature (hdf5 file) [here](https://pan.baidu.com/s/1xVZO7t8k4H_l3aEyuA-KXQ). Acess code: jcj6.
+* **evaluation**. Download the evaluation tools [here](https://pan.baidu.com/s/1xVZO7t8k4H_l3aEyuA-KXQ). Acess code: jcj6. Extarct and put it in the project root directory.
 
 There are five kinds of keys in our .hdf5 file. They are
 * `['%d_features' % image_id]`: region features (N_regions, feature_dim)
@@ -36,6 +36,10 @@ Important args:
 * `--features_path` path to hdf5 file
 * `--model_path`
 * `--dump_json` dump generated captions to
+
+Pretrained model is available [here](https://pan.baidu.com/s/1xVZO7t8k4H_l3aEyuA-KXQ). Acess code: jcj6.
+By evaluating the pretrained model, you will get
+{'BLEU': [0.8136727001615207, 0.6606095421082421, 0.5167535314080227, 0.39790755018790197], 'METEOR': 0.29522868252436046, 'ROUGE': 0.5914367650104326, 'CIDEr': 1.3382047139781112, 'SPICE': 0.22953477359195887}
 
 ## References
 [1] [M2](https://github.com/aimagelab/meshed-memory-transformer)
